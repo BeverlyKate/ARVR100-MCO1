@@ -15,12 +15,12 @@ public class GymsState : MonoBehaviour
     [SerializeField] GameObject selectButton;
     [SerializeField] GameObject deleteButton;
 
-    public List<Gym> Gyms { get; private set; }
-    public Gym SelectedGym { get; private set; }
-
     TMP_InputField gymInputField { 
         get => inputPanel.transform.Find("InputField (TMP)").GetComponent<TMP_InputField>(); 
     }
+
+    public List<Gym> Gyms { get; private set; }
+    public Gym SelectedGym { get; private set; }
 
     void Awake()
     {

@@ -8,6 +8,12 @@ public class PlayerDB
         // TODO: Initialize database connection
     }
 
+    // TODO: Add the corresponding parameters
+    public void CreateAccount(string name)
+    {
+        // TODO: Make the proper call
+    }
+
     public void DeleteAccount(Account account)
     {
         // TODO: Make the proper call
