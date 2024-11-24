@@ -5832,7 +5832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de78381c3bcd3d43b9cef4bbd7dbdac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dailyProgressPanel: {fileID: 0}
+  dailyProgressPanel: {fileID: 1968657650}
 --- !u!1 &1771459701
 GameObject:
   m_ObjectHideFlags: 0
