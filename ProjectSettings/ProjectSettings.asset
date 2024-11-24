@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: ARVR100
-  productName: HO Anchors
+  productName: XR-CiSE
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -138,12 +138,7 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 0.1.0
-  preloadedAssets:
-  - {fileID: 4800000, guid: c9f956787b1d945e7b36e0516201fc76, type: 3}
-  - {fileID: 4800000, guid: 0945859e5a1034c2cb6dce53cb4fb899, type: 3}
-  - {fileID: 11400000, guid: 5860d7b1cfb539e4f93bbfcb2f423239, type: 2}
-  - {fileID: 8019704632789216178, guid: 4f58c437cfded2e418158b3661243c74, type: 2}
-  - {fileID: 11400000, guid: 4c360d95cabf51c4ca8c4a8f19319d9c, type: 2}
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -932,11 +927,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 4f2131da-6109-4b7e-93f8-17bf263446ed
+  cloudProjectId: fbe3eb81-95bc-411f-97c2-37bcda54a04e
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: My project 2024-10-10_22-16-08
-  organizationId: bevveb
+  projectName: ARVR100-MCO1
+  organizationId: lenz_gio_rivera
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
