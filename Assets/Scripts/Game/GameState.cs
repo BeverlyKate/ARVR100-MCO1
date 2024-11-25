@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -22,7 +23,7 @@ public class GameState : MonoBehaviour
     [SerializeField, Header("Game Elements")]
     GameObject poseParent;
     [SerializeField]
-    GameObject vrHead, vrLeftHand, vrRightHand, goodFeedbackPanel;
+    GameObject goodFeedbackPanel;
 
     [SerializeField, Header("Text Elements")]
     TextMeshProUGUI gameRepCountText;
@@ -44,15 +45,17 @@ public class GameState : MonoBehaviour
         {
             return;
         }
-        
-        //poseSimilarityComputer.Update(
-        //    currentPose.HeadPosition,
-        //    currentPose.LeftHandPosition,
-        //    currentPose.RightHandPosition,
-        //    vrHead.transform.position,
-        //    vrLeftHand.transform.position,
-        //    vrRightHand.transform.position
-        //);
+
+        Pose currPosePos = currentPose.GetComponent<Pose>();
+
+        poseSimilarityComputer.Update(
+            currPosePos.HeadPosition,
+            currPosePos.LeftHandPosition,
+            currPosePos.RightHandPosition,
+            Camera.main.transform.position,
+            OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch),
+            OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch)
+        );
 
         if (poseSimilarityComputer.IsSimilar)
         {
@@ -90,7 +93,7 @@ public class GameState : MonoBehaviour
         }
 
         SetNextPose();
-
+        
         pauseSimlarityUpdate = false;
     }
 
