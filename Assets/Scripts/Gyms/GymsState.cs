@@ -40,10 +40,10 @@ public class GymsState : MonoBehaviour
         UpdateGyms();
     }
 
-    void UpdateGyms()
+    async void UpdateGyms()
     {
         GymDB gdb = new();
-        Gyms = gdb.FetchGyms();
+        Gyms = await gdb.FetchGyms();
 
         selectList.GetComponent<GymsSelectList>().UpdateGyms(Gyms);
     }

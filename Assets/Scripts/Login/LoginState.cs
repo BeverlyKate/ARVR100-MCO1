@@ -40,10 +40,10 @@ public class LoginState : MonoBehaviour
         UpdateAccounts();
     }
 
-    void UpdateAccounts()
+    async void UpdateAccounts()
     {
         PlayerDB pdb = new();
-        Accounts = pdb.FetchAccounts();
+        Accounts = await pdb.FetchAccounts();
 
         selectList.GetComponent<LoginSelectList>().UpdateAccounts(Accounts);
     }
