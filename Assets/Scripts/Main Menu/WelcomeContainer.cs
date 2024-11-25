@@ -1,23 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class WelcomeContainer : MonoBehaviour
-{
-    [SerializeField] private GameObject userWelcomeText;
-    [SerializeField] private GameObject streakText;
-
-    void Start()
-    {
-        if (CurrentAccount.Account == null)
-        {
-            return;
-        }
-
-        var userWelcomeTextComponent = userWelcomeText.GetComponent<TMPro.TextMeshProUGUI>();
-        userWelcomeTextComponent.text = "Welcome, " + CurrentAccount.Account.Name + "!";
-
-        var streakTextComponent = streakText.GetComponent<TMPro.TextMeshProUGUI>();
-        streakTextComponent.text = "~" + CurrentAccount.Account.Streak + "~";
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:43841f804f42af6c2dbf42d5e20ccaed76c1ded06be66dc5ae0ad7510ac93c2e
+size 700

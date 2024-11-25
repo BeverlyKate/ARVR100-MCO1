@@ -1,17 +1,3 @@
-/// <summary>
-/// Manages the connection between the VR headset and the phone.
-/// </summary>
-public static class PhoneConnection
-{
-    public static string ConnectionId { get; private set; }
-
-    static PhoneConnection()
-    {
-        ConnectionId = "XXXX-YYYY-ZZZZ-WWWW";
-    }
-
-    // TODO:
-    // Emit an event when the connection is established.
-    // Emit an event when the connection is lost.
-    // Emit an event on phone message
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:42057653fbad7ab786a401d762abefab451806357a436d6761eb9450ce1f6f0c
+size 441

@@ -1,29 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-
-public class LeaderboardRow
-{
-    public string GroupName { get; private set; }
-    public int GroupScore { get; private set; }
-
-    public LeaderboardRow(string groupName, int groupScore)
-    {
-        GroupName = groupName;
-        GroupScore = groupScore;
-    }
-}
-
-public class GroupLeaderboardDB
-{
-    public GroupLeaderboardDB()
-    {
-        // TODO: Initialize database connection
-        // It may be better to just wrap around PlayerDB and do the grouping here
-    }
-
-    public List<LeaderboardRow> FetchLeaderboardRows()
-    {
-        // TODO
-        return new List<LeaderboardRow>() { new("group1", 100), new("group2", 200) };
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1a2ac71505980ced287ccecda404e4d3206a35e54a524ce2983250e3a8ae344f
+size 709

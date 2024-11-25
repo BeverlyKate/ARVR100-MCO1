@@ -1,32 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PlayerDB
-{
-    public PlayerDB() {
-        // TODO: Initialize database connection
-    }
-
-    // TODO: Add the corresponding parameters
-    public void CreateAccount(string name)
-    {
-        // TODO: Make the proper call
-    }
-
-    public void DeleteAccount(Account account)
-    {
-        // TODO: Make the proper call
-    }
-
-    public List<Account> FetchAccounts()
-    {
-        // TODO: Make the proper call
-        return new List<Account>() { new("name1"), new("name2") };
-    }
-
-    public void SetGym(Account account, Gym gym)
-    {
-        // TODO: Make the proper call
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e2f38c11af518332144a37be3848aa745cc973dcc4c8861b8128c29f8f5db231
+size 1750

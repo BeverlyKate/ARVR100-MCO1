@@ -1,26 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-
-public class GymDB
-{
-    public GymDB()
-    {
-        // TODO: Initialize database connection
-    }
-
-    public void AddGym(string name)
-    {
-        // TODO: Make the proper call
-    }
-
-    public void DeleteGym(Gym gym)
-    {
-        // TODO: Make the proper call
-    }
-
-    public List<Gym> FetchGyms()
-    {
-        // TODO: Make the proper call
-        return new List<Gym>() { new("gym1"), new("gym2") };
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d863ff9f43e67d02b096c5b34d1094318790c321953da9f6b0bd1570eae75e4e
+size 481
