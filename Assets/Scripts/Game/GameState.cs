@@ -19,6 +19,8 @@ public class GameState : MonoBehaviour
 
     [SerializeField, Header("Poses")] 
     List<GameObject> poses = new();
+    [SerializeField]
+    Pose testReferencePose;
 
     [SerializeField, Header("Game Elements")]
     GameObject poseParent;
@@ -37,6 +39,14 @@ public class GameState : MonoBehaviour
 
         UpdateRepsUI();
         UpdateRepsTodayUI();
+
+        if (testReferencePose != null)
+        {
+            Pose currPosePos = currentPose.GetComponent<Pose>();
+
+            Debug.Log(String.Format("{0}, {1}, {2}", currPosePos.HeadPosition, currPosePos.LeftHandPosition, currPosePos.RightHandPosition));
+            Debug.Log(String.Format("{0}, {1}, {2}", testReferencePose.HeadPosition, testReferencePose.LeftHandPosition, testReferencePose.RightHandPosition));
+        }
     }
 
     void Update()
@@ -48,18 +58,34 @@ public class GameState : MonoBehaviour
 
         Pose currPosePos = currentPose.GetComponent<Pose>();
 
-        poseSimilarityComputer.Update(
-            currPosePos.HeadPosition,
-            currPosePos.LeftHandPosition,
-            currPosePos.RightHandPosition,
-            Camera.main.transform.position,
-            OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch),
-            OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch)
-        );
-
-        if (poseSimilarityComputer.IsSimilar)
+        if (testReferencePose == null)
         {
-            StartCoroutine(MoveToNextPose());
+            poseSimilarityComputer.Update(
+                currPosePos.HeadPosition,
+                currPosePos.LeftHandPosition,
+                currPosePos.RightHandPosition,
+                Camera.main.transform.position,
+                OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch),
+                OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch)
+            );
+
+            if (poseSimilarityComputer.IsSimilar)
+            {
+                StartCoroutine(MoveToNextPose());
+            }
+        } 
+        else
+        {
+            poseSimilarityComputer.Update(
+                currPosePos.HeadPosition,
+                currPosePos.LeftHandPosition,
+                currPosePos.RightHandPosition,
+                testReferencePose.HeadPosition,
+                testReferencePose.LeftHandPosition,
+                testReferencePose.RightHandPosition
+            );
+
+            Debug.Log(poseSimilarityComputer.Similarity);
         }
 
         UpdateModelSimilarityUI();
