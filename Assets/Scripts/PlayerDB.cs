@@ -25,7 +25,7 @@ public class PlayerDB
                 continue;
             }
 
-            DateTime lastUpdateDay = DateTime.Parse(account.StreakLastUpdateDate);
+            DateTime lastUpdateDay = DateTime.Parse(account.ProgressLastLoginDate);
             DateTime lastUpdateWeekStart = lastUpdateDay.AddDays(-(int) lastUpdateDay.DayOfWeek);
 
             if (DateTime.Now >= lastUpdateWeekStart.AddDays(7))
@@ -142,6 +142,7 @@ public class PlayerDB
         int dayOfWeek = (int) DateTime.Now.DayOfWeek;
         account.DailyProgress[dayOfWeek] += dReps;
         account.TotalReps += dReps;
+        account.TotalScore += dReps * account.Streak;
         string json = JsonUtility.ToJson(account);
         await _reference.Child("Accounts").Child(account.userId).SetRawJsonValueAsync(json);
 

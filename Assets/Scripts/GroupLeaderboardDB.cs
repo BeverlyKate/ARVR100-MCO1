@@ -1,17 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Firebase.Database;
 using UnityEngine;
 
 public class LeaderboardRow
 {
-    public string GroupName { get; private set; }
-    public int GroupScore { get; private set; }
+    public string GymName;
+    public int GroupScore;
 
-    public LeaderboardRow(string groupName, int groupScore)
+    public LeaderboardRow(string gymName, int groupScore)
     {
-        GroupName = groupName;
+        GymName = gymName;
         GroupScore = groupScore;
     }
 }
@@ -28,28 +29,25 @@ public class GroupLeaderboardDB
 
     public async Task<List<LeaderboardRow>> FetchLeaderboardRows()
     {
-        List<LeaderboardRow> leaderboardRows = new List<LeaderboardRow>();
-        try
+        Dictionary<string, LeaderboardRow> leaderboardRows = new Dictionary<string, LeaderboardRow>();
+        List<Account> accounts = await new PlayerDB().FetchAccounts();
+        List<Gym> gyms = await new GymDB().FetchGyms();
+
+        foreach (Gym gym in gyms)
         {
-            DataSnapshot snapshot = await _reference.Child("Leaderboard").GetValueAsync();
-            if (snapshot.Exists)
-            {
-                foreach (var snapshotChild in snapshot.Children)
-                {
-                    LeaderboardRow leaderboardRow = JsonUtility.FromJson<LeaderboardRow>(snapshotChild.GetRawJsonValue());
-                    leaderboardRows.Add(leaderboardRow);
-                }
-            }
-            else
-            {
-                Debug.LogWarning("Leaderboard is null");
-            }
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
+            LeaderboardRow leaderboardRow = new LeaderboardRow(gym.Name, 0);
+            leaderboardRows.Add(gym.gymId, leaderboardRow);
         }
 
-        return leaderboardRows;
+        foreach (Account account in accounts)
+        {
+            if (String.IsNullOrEmpty(account.gymId))
+            {
+                continue;
+            }
+            leaderboardRows[account.gymId].GroupScore += account.TotalScore;
+        }
+
+        return leaderboardRows.Values.ToList();
     }
 }

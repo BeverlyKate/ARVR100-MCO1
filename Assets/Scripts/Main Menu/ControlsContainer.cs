@@ -14,7 +14,7 @@ public class ControlsContainer : MonoBehaviour
         GroupLeaderboardDB gldb = new();
         foreach (var row in await gldb.FetchLeaderboardRows())
         {
-            leaderboardComp.AddRow(row.GroupName, row.GroupScore);
+            leaderboardComp.AddRow(row.GymName, row.GroupScore);
         }
     }
 
