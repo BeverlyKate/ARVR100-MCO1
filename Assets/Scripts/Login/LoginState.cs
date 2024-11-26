@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Firebase;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,8 +10,6 @@ using UnityEngine.UI;
 
 public class LoginState : MonoBehaviour
 {
-    public static LoginState Instance { get; private set; }
-
     [SerializeField] GameObject inputPanel;
     [SerializeField] GameObject selectList;
     [SerializeField] GameObject selectButton;
@@ -22,21 +22,17 @@ public class LoginState : MonoBehaviour
     public List<Account> Accounts { get; private set; }
     public Account SelectedAccount { get; private set; }   
 
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     void Start()
     {
+        UpdateAccountsWithStreakCheck();
+    }
+
+    async void UpdateAccountsWithStreakCheck()
+    {
+        PlayerDB pdb = new();
+        await pdb.UpdatePlayerStreakInfo();
+        await pdb.UpdatePlayerWeeklyRepsInfo();
+
         UpdateAccounts();
     }
 
@@ -59,10 +55,10 @@ public class LoginState : MonoBehaviour
         inputPanel.SetActive(false);
     }
 
-    public void CreateAccount()
+    public async void CreateAccount()
     {
         PlayerDB pdb = new();
-        pdb.CreateAccount(nameInputField.text);
+        await pdb.CreateAccount(nameInputField.text);
 
         UpdateAccounts();
         CloseAccountInputScreen();
@@ -77,8 +73,11 @@ public class LoginState : MonoBehaviour
         deleteButton.GetComponent<Button>().interactable = account != null;
     }
 
-    public void SelectAccount()
+    public async void SelectAccount()
     {
+        PlayerDB pdb = new();
+        await pdb.UpdateProgressLastLoginDate(SelectedAccount);
+
         CurrentAccount.Account = SelectedAccount;
         SceneManager.LoadScene("Main Menu Scene", LoadSceneMode.Single);
     }
@@ -87,7 +86,9 @@ public class LoginState : MonoBehaviour
     {
         PlayerDB pdb = new();
         pdb.DeleteAccount(SelectedAccount);
+        CurrentAccount.Account = null;
 
         UpdateAccounts();
+        PreSelectAccount(null);
     }
 }

@@ -25,4 +25,10 @@ public class ControlsContainer : MonoBehaviour
     public void OnMyGymButtonClicked() {
         SceneManager.LoadScene("Gyms Scene");
     }
+
+    public void OnBackButtonClicked()
+    {
+        CurrentAccount.Account = null;
+        SceneManager.LoadScene("Login Scene");
+    }
 }

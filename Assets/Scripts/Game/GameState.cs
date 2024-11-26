@@ -67,9 +67,11 @@ public class GameState : MonoBehaviour
 
     // Handlers
 
-    public void ExitGame()
+    public async void ExitGame()
     {
-        // TODO: Update the current player's daily streak
+        PlayerDB pdb = new();
+        await pdb.UpdateStreak(CurrentAccount.Account);
+        await pdb.UpdateReps(CurrentAccount.Account, 5);
 
         SceneManager.LoadScene("Main Menu Scene", LoadSceneMode.Single);
     }

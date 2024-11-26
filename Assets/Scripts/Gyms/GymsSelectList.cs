@@ -14,6 +14,7 @@ public class GymsSelectList : MonoBehaviour
 
     [SerializeField] GameObject content;
     [SerializeField] GameObject listTextPrefab;
+    [SerializeField] GymsState controller;
 
     public void UpdateGyms(List<Gym> gyms)
     {
@@ -30,9 +31,9 @@ public class GymsSelectList : MonoBehaviour
             listItem.GetComponentInChildren<TextMeshProUGUI>().text = gym.Name;
             listItem.GetComponent<Button>()
                 .onClick
-                .AddListener(() => GymsState.Instance.PreSelectGym(gym));
+                .AddListener(() => controller.PreSelectGym(gym));
 
-            if (gym == selectedGym)
+            if (gym.gymId == selectedGym.gymId)
             {
                 listItem.transform.GetComponent<Image>().color = SELECTED_COLOR;
             }

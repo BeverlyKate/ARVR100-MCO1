@@ -18,6 +18,6 @@ public class WelcomeContainer : MonoBehaviour
         userWelcomeTextComponent.text = "Welcome, " + CurrentAccount.Account.Name + "!";
 
         var streakTextComponent = streakText.GetComponent<TMPro.TextMeshProUGUI>();
-        streakTextComponent.text = "~" + CurrentAccount.Account.Streak + "~";
+        streakTextComponent.text = "~" + CurrentAccount.Account.Streak + " Day Streak~";
     }
 }

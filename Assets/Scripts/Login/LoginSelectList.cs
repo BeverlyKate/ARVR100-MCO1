@@ -14,6 +14,7 @@ public class LoginSelectList : MonoBehaviour
 
     [SerializeField] GameObject content;
     [SerializeField] GameObject listTextPrefab;
+    [SerializeField] LoginState controller;
 
     public void UpdateAccounts(List<Account> accounts)
     {
@@ -30,7 +31,7 @@ public class LoginSelectList : MonoBehaviour
             listItem.GetComponentInChildren<TextMeshProUGUI>().text = account.Name;
             listItem.GetComponent<Button>()
                 .onClick
-                .AddListener(() => LoginState.Instance.PreSelectAccount(account));
+                .AddListener(() => controller.PreSelectAccount(account));
 
             if (account == selectedAccount)
             {

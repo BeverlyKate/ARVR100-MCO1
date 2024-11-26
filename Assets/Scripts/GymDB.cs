@@ -12,10 +12,11 @@ public class GymDB
         _reference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
-    public async void AddGym(string name)
+    public async Task AddGym(string name)
     {
-        string json = JsonUtility.ToJson(new Gym(SystemInfo.deviceUniqueIdentifier, name));
-        await _reference.Child("Gyms").Child(SystemInfo.deviceUniqueIdentifier).SetRawJsonValueAsync(json);
+        string uuid = Guid.NewGuid().ToString();
+        string json = JsonUtility.ToJson(new Gym(uuid, name));
+        await _reference.Child("Gyms").Child(uuid).SetRawJsonValueAsync(json);
     }
 
     public async void DeleteGym(Gym gym)

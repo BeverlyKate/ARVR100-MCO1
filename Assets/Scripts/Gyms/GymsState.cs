@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Firebase.Database;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,7 +9,8 @@ using UnityEngine.UI;
 
 public class GymsState : MonoBehaviour
 {
-    public static GymsState Instance { get; private set; }
+    private DatabaseReference _reference;
+    private Gym userCurrentGym;
 
     [SerializeField] GameObject inputPanel;
     [SerializeField] GameObject selectList;
@@ -22,22 +24,26 @@ public class GymsState : MonoBehaviour
     public List<Gym> Gyms { get; private set; }
     public Gym SelectedGym { get; private set; }
 
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     void Start()
     {
+        _reference = FirebaseDatabase.DefaultInstance.RootReference;
+
         UpdateGyms();
+        SetStartingGym();
+    }
+
+    async void SetStartingGym()
+    {
+        if (CurrentAccount.Account.gymId == "")
+        {
+            return;
+        }
+
+        DataSnapshot gymSS= await _reference.Child("Gyms").Child(CurrentAccount.Account.gymId).GetValueAsync();
+        Gym gym = JsonUtility.FromJson<Gym>(gymSS.GetRawJsonValue());
+
+        userCurrentGym = gym;
+        PreSelectGym(userCurrentGym);
     }
 
     async void UpdateGyms()
@@ -59,10 +65,10 @@ public class GymsState : MonoBehaviour
         inputPanel.SetActive(false);
     }
 
-    public void CreateGym()
+    public async void CreateGym()
     {
         GymDB gdb = new();
-        gdb.AddGym(gymInputField.text);
+        await gdb.AddGym(gymInputField.text);
 
         UpdateGyms();
         CloseGymInputScreen();
@@ -77,18 +83,31 @@ public class GymsState : MonoBehaviour
         deleteButton.GetComponent<Button>().interactable = gym != null;
     }
 
-    public void SelectGym()
+    public async void SelectGym()
     {
         PlayerDB pdb = new();
-        pdb.SetGym(CurrentAccount.Account, SelectedGym);
+        await pdb.SetGym(CurrentAccount.Account, SelectedGym);
+        userCurrentGym = SelectedGym;
 
         SceneManager.LoadScene("Main Menu Scene", LoadSceneMode.Single);
     }
 
-    public void DeleteGym()
+    public async void DeleteGym()
     {
         GymDB gdb = new();
         gdb.DeleteGym(SelectedGym);
+
+        PlayerDB pdb = new();
+        var accounts = await pdb.FetchAccounts();
+
+        foreach (var account in accounts)
+        {
+            if (account.gymId == SelectedGym.gymId)
+            {
+                account.gymId = "";
+                await pdb.SetGym(account, null);
+            }
+        }
 
         UpdateGyms();
         PreSelectGym(null);

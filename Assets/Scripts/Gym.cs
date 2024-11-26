@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
+[Serializable]
 public class Gym
 {
-    public string gymId {get; set;}
-    public string Name { get; private set; }
+    public string gymId;
+    public string Name;
 
     public Gym(string gymId, string name)
     {

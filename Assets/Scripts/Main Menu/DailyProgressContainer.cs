@@ -8,13 +8,13 @@ public class DailyProgressContainer : MonoBehaviour
 
     void Start()
     {
-        //if (CurrentAccount.Account == null)
-        //{
-        //    return;
-        //}
+        if (CurrentAccount.Account == null)
+        {
+            return;
+        }
 
-        //var dailyProgress = CurrentAccount.Account.DailyProgress;
+        var dailyProgress = CurrentAccount.Account.DailyProgress;
         var dailyProgressPanelComp = dailyProgressPanel.GetComponent<DailyProgressPanel>();
-        dailyProgressPanelComp.SetProgress(new List<int>() {  1, 2, 3, 4, 5, 6, 7 });
+        dailyProgressPanelComp.SetProgress(dailyProgress);
     }
 }
