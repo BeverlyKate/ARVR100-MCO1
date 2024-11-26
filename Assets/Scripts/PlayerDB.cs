@@ -1,32 +1,58 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Firebase.Database;
 using UnityEngine;
 
 public class PlayerDB
 {
+    private DatabaseReference _reference;
     public PlayerDB() {
-        // TODO: Initialize database connection
+        _reference = FirebaseDatabase.DefaultInstance.RootReference;
+    }
+    
+    public async void CreateAccount(string name)
+    {
+        string json = JsonUtility.ToJson(new Account(SystemInfo.deviceUniqueIdentifier, name));
+        await _reference.Child("Accounts").Child(SystemInfo.deviceUniqueIdentifier).SetRawJsonValueAsync(json);
     }
 
-    // TODO: Add the corresponding parameters
-    public void CreateAccount(string name)
+    public async void DeleteAccount(Account account)
     {
-        // TODO: Make the proper call
+        await _reference.Child("Accounts").Child(account.userId).RemoveValueAsync();
     }
 
-    public void DeleteAccount(Account account)
+    public async Task<List<Account>> FetchAccounts()
     {
-        // TODO: Make the proper call
+        List<Account> accounts = new List<Account>();
+        try
+        {
+            DataSnapshot snapshot = await _reference.Child("Accounts").GetValueAsync();
+            if (snapshot.Exists)
+            {
+                foreach (var snapshotChild in snapshot.Children)
+                {
+                    Account account = JsonUtility.FromJson<Account>(snapshotChild.GetRawJsonValue());
+                    accounts.Add(account);
+                }
+            }
+            else
+            {
+                Debug.LogWarning("User is null");
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        return accounts;
     }
 
-    public List<Account> FetchAccounts()
+    public async void SetGym(Account account, Gym gym)
     {
-        // TODO: Make the proper call
-        return new List<Account>() { new("name1"), new("name2") };
-    }
-
-    public void SetGym(Account account, Gym gym)
-    {
-        // TODO: Make the proper call
+        account.gymId = gym.gymId;
+        string json = JsonUtility.ToJson(account);
+        await _reference.Child("Accounts").Child(account.userId).SetRawJsonValueAsync(json);
     }
 }
