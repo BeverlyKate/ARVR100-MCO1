@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Firebase.Database;
 using TMPro;
 using UnityEngine;
@@ -24,15 +25,15 @@ public class GymsState : MonoBehaviour
     public List<Gym> Gyms { get; private set; }
     public Gym SelectedGym { get; private set; }
 
-    void Start()
+    async void Start()
     {
         _reference = FirebaseDatabase.DefaultInstance.RootReference;
 
-        UpdateGyms();
-        SetStartingGym();
+        await UpdateGyms();
+        await SetStartingGym();
     }
 
-    async void SetStartingGym()
+    async Task SetStartingGym()
     {
         if (CurrentAccount.Account.gymId == "")
         {
@@ -46,7 +47,7 @@ public class GymsState : MonoBehaviour
         PreSelectGym(userCurrentGym);
     }
 
-    async void UpdateGyms()
+    async Task UpdateGyms()
     {
         GymDB gdb = new();
         Gyms = await gdb.FetchGyms();
