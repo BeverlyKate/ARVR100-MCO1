@@ -3663,8 +3663,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poses:
   - {fileID: 919132149155446097, guid: acc7afb900512bb4f8735aff6663ee84, type: 3}
-  - {fileID: 919132149155446097, guid: fa8104c762b73ac4b951e5db5352e14b, type: 3}
-  - {fileID: 919132149155446097, guid: e30ac4af9e894fe4e9a785597776cb0e, type: 3}
   testReferencePose: {fileID: 0}
   poseParent: {fileID: 470862543}
   goodFeedbackPanel: {fileID: 725932233}

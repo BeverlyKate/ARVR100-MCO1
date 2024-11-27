@@ -1,0 +1,5 @@
+C:/Users/qwertyleniopa/Desktop/Shoocl/ARVR100/ARVR100-MCO1/.utmp/RelWithDebInfo/2hp391dv/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/qwertyleniopa/Desktop/Shoocl/ARVR100/ARVR100-MCO1/.utmp/RelWithDebInfo/2hp391dv/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/qwertyleniopa/Desktop/Shoocl/ARVR100/ARVR100-MCO1/.utmp/RelWithDebInfo/2hp391dv/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/qwertyleniopa/Desktop/Shoocl/ARVR100/ARVR100-MCO1/.utmp/RelWithDebInfo/2hp391dv/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/qwertyleniopa/Desktop/Shoocl/ARVR100/ARVR100-MCO1/.utmp/RelWithDebInfo/2hp391dv/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
