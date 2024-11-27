@@ -33,7 +33,12 @@ public class GymsSelectList : MonoBehaviour
                 .onClick
                 .AddListener(() => controller.PreSelectGym(gym));
 
-            if (gym.gymId == selectedGym.gymId)
+            if (selectedGym == null)
+            {
+                continue;
+            }
+            
+            if (gym.gymId == selectedGym?.gymId)
             {
                 listItem.transform.GetComponent<Image>().color = SELECTED_COLOR;
             }
