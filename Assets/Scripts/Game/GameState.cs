@@ -56,7 +56,14 @@ public class GameState : MonoBehaviour
             return;
         }
 
+        if (currentPose == null)
+        {
+            Debug.LogError("currentPose is null.");
+            return;
+        }
+
         Pose currPosePos = currentPose.GetComponent<Pose>();
+
 
         if (testReferencePose == null)
         {
@@ -68,7 +75,7 @@ public class GameState : MonoBehaviour
                 OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch),
                 OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch)
             );
-
+            
             if (poseSimilarityComputer.IsSimilar)
             {
                 StartCoroutine(MoveToNextPose());
@@ -146,6 +153,7 @@ public class GameState : MonoBehaviour
 
     void SetNextPose()
     {
+        Debug.Log("Set next pose called");
         if (poseParent.transform.childCount > 0)
         {
             Destroy(poseParent.transform.GetChild(0).gameObject);

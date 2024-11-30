@@ -44,6 +44,8 @@ public class PoseSimilarityComputer
         HeadSimilarity = GetSimilarity(poseHeadVec - poseCentroid, playerHeadVec - playerCentroid);
         LeftHandSimilarity = GetSimilarity(poseLeftHandVec - poseCentroid, playerLeftHandVec - playerCentroid);
         RightHandSimilarity = GetSimilarity(poseRightHandVec - poseCentroid, playerRightHandVec - playerCentroid);
+
+        Debug.Log("HeadSimilarity: " + HeadSimilarity + " LeftHandSimilarity: " + LeftHandSimilarity + " RightHandSimilarity " + RightHandSimilarity);
     }
 
     Vector3 GetCentroid(Vector3 head, Vector3 leftHand, Vector3 rightHand)
