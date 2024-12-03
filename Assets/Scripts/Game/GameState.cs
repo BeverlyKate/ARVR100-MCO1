@@ -67,7 +67,8 @@ public class GameState : MonoBehaviour
 
         if (testReferencePose == null)
         {
-            poseSimilarityComputer.Update(
+            /*
+             poseSimilarityComputer.Update(
                 currPosePos.HeadPosition,
                 currPosePos.LeftHandPosition,
                 currPosePos.RightHandPosition,
@@ -80,7 +81,14 @@ public class GameState : MonoBehaviour
             {
                 StartCoroutine(MoveToNextPose());
             }
-        } 
+            */
+
+
+            //when loading up a pose dont forget to set the Pose A as the player realtime info (Pose From Body obj)
+            //if activestate is yes hold for x seconds 
+            //
+
+        }
         else
         {
             poseSimilarityComputer.Update(

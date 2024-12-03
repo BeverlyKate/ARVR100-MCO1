@@ -233,27 +233,27 @@ PrefabInstance:
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.45
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.45
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.45
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.147
+      value: -0.061999917
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.949
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d73b2d0c0ee504587e0237ec474ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activeState: {fileID: 930813329}
+  _activeState: {fileID: 634365634}
   _target: {fileID: 47662878}
   _normalColor: {r: 1, g: 0, b: 0, a: 1}
   _activeColor: {r: 0, g: 1, b: 0, a: 1}
@@ -385,9 +385,6 @@ MonoBehaviour:
   - Joint: 6
     MaxDelta: 30
     Width: 4
-  - Joint: 6
-    MaxDelta: 30
-    Width: 4
   _minTimeInState: 0.05
 --- !u!1001 &680554533
 PrefabInstance:
@@ -419,27 +416,27 @@ PrefabInstance:
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.45
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.45
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.45
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.223
+      value: -0.45500004
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.949
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
@@ -534,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d73b2d0c0ee504587e0237ec474ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activeState: {fileID: 930813329}
+  _activeState: {fileID: 680554540}
   _target: {fileID: 2121984668}
   _normalColor: {r: 1, g: 0, b: 0, a: 1}
   _activeColor: {r: 0, g: 1, b: 0, a: 1}
@@ -571,9 +568,6 @@ MonoBehaviour:
   - Joint: 6
     MaxDelta: 30
     Width: 4
-  - Joint: 6
-    MaxDelta: 30
-    Width: 4
   _minTimeInState: 0.05
 --- !u!1001 &728341032
 PrefabInstance:
@@ -600,32 +594,32 @@ PrefabInstance:
     - target: {fileID: 8436341638219482565, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_Name
-      value: Tpose
+      value: LateralRaise
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.45
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.45
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.45
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.97
+      value: 0.801
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.949
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
@@ -720,7 +714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d73b2d0c0ee504587e0237ec474ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activeState: {fileID: 930813329}
+  _activeState: {fileID: 728341039}
   _target: {fileID: 999343499}
   _normalColor: {r: 1, g: 0, b: 0, a: 1}
   _activeColor: {r: 0, g: 1, b: 0, a: 1}
@@ -752,9 +746,6 @@ MonoBehaviour:
     MaxDelta: 30
     Width: 4
   - Joint: 15
-    MaxDelta: 30
-    Width: 4
-  - Joint: 6
     MaxDelta: 30
     Width: 4
   - Joint: 6
@@ -795,9 +786,6 @@ MonoBehaviour:
     MaxDelta: 30
     Width: 4
   - Joint: 15
-    MaxDelta: 30
-    Width: 4
-  - Joint: 6
     MaxDelta: 30
     Width: 4
   - Joint: 6
@@ -869,27 +857,27 @@ PrefabInstance:
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.45
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.45
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.45
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.014
+      value: -0.824
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.949
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
@@ -983,27 +971,27 @@ PrefabInstance:
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.45
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.45
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.45
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0.38200003
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.949
       objectReference: {fileID: 0}
     - target: {fileID: 8436341638219913701, guid: 0e00cd252fc6ef144ba80184f765ddd8,
         type: 3}
@@ -1098,7 +1086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d73b2d0c0ee504587e0237ec474ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activeState: {fileID: 930813329}
+  _activeState: {fileID: 1368892761}
   _target: {fileID: 462148007}
   _normalColor: {r: 1, g: 0, b: 0, a: 1}
   _activeColor: {r: 0, g: 1, b: 0, a: 1}
@@ -1130,9 +1118,6 @@ MonoBehaviour:
     MaxDelta: 30
     Width: 4
   - Joint: 15
-    MaxDelta: 30
-    Width: 4
-  - Joint: 6
     MaxDelta: 30
     Width: 4
   - Joint: 6
@@ -1882,8 +1867,8 @@ SceneRoots:
   - {fileID: 1564078856}
   - {fileID: 605320692}
   - {fileID: 1388038052}
-  - {fileID: 680554533}
   - {fileID: 1078371071}
+  - {fileID: 680554533}
   - {fileID: 634365627}
   - {fileID: 1368892754}
   - {fileID: 728341032}
