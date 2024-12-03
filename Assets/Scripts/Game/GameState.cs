@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
-    const float SIMILARITY_THRESHOLD = 0.5f;
+    const float SIMILARITY_THRESHOLD = 0.8f;
 
     readonly Queue<GameObject> pendingPoses = new();
     readonly PoseSimilarityComputer poseSimilarityComputer = new(SIMILARITY_THRESHOLD);
@@ -75,7 +75,7 @@ public class GameState : MonoBehaviour
                 OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch),
                 OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch)
             );
-            
+
             if (poseSimilarityComputer.IsSimilar)
             {
                 StartCoroutine(MoveToNextPose());
