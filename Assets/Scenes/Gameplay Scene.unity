@@ -302,7 +302,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2128024098}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameState, Assembly-CSharp
         m_MethodName: ExitGame
         m_Mode: 1
@@ -1811,6 +1811,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2483171112400622654, guid: f54012181eacade4ea242c65f804720f,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483171112400622654, guid: f54012181eacade4ea242c65f804720f,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483171112400622654, guid: f54012181eacade4ea242c65f804720f,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483171112400622654, guid: f54012181eacade4ea242c65f804720f,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2514675399181695721, guid: f54012181eacade4ea242c65f804720f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2403,7 +2423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2128024099}
-  - component: {fileID: 2128024098}
+  - component: {fileID: 2128024100}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -2411,28 +2431,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2128024098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128024097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee6691947a58c7a49b28c34015a8ba98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poses:
-  - {fileID: 1226399336200159406, guid: 86d2b58f3fdb66b428f76679bc97be46, type: 3}
-  - {fileID: 6011914960668015994, guid: 89af39596dc6e774cbbafe2728eaa47d, type: 3}
-  - {fileID: 8339677282870024071, guid: e0a9312a7e3861c4187b7fa0a4c2c67a, type: 3}
-  poseParent: {fileID: 470862543}
-  goodFeedbackPanel: {fileID: 725932233}
-  poseFromBody: {fileID: 0}
-  gameRepCountText: {fileID: 679026617}
-  currentPoseText: {fileID: 2004368542}
-  todayRepCountText: {fileID: 1226569705}
 --- !u!4 &2128024099
 Transform:
   m_ObjectHideFlags: 0
@@ -2448,6 +2446,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2128024100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128024097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6691947a58c7a49b28c34015a8ba98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poses:
+  - {fileID: 6011914960668015994, guid: 89af39596dc6e774cbbafe2728eaa47d, type: 3}
+  - {fileID: 1226399336200159406, guid: 86d2b58f3fdb66b428f76679bc97be46, type: 3}
+  - {fileID: 8339677282870024071, guid: e0a9312a7e3861c4187b7fa0a4c2c67a, type: 3}
+  poseParent: {fileID: 0}
+  goodFeedbackPanel: {fileID: 0}
+  poseFromBody: {fileID: 0}
+  gameRepCountText: {fileID: 0}
+  currentPoseText: {fileID: 0}
+  todayRepCountText: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
