@@ -46,10 +46,10 @@ public class GameState : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            ExitGame();
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    StartCoroutine(MoveToNextPose());
+        //}
 
         if (pauseSimlarityUpdate || currentPose == null) return;
 
