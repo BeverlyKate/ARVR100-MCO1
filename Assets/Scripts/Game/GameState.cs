@@ -131,7 +131,7 @@ public class GameState : MonoBehaviour
         var comparer = currentPose.GetComponent<BodyPoseComparerActiveState>();
         if (comparer != null)
         {
-            comparer.SetPoseA(poseFromBody);
+            comparer.InjectPoseA(poseFromBody);
         }
         else
         {
