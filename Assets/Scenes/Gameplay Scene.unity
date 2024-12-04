@@ -2431,28 +2431,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2128024098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128024097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee6691947a58c7a49b28c34015a8ba98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poses:
-  - {fileID: 1226399336200159406, guid: 86d2b58f3fdb66b428f76679bc97be46, type: 3}
-  - {fileID: 6011914960668015994, guid: 89af39596dc6e774cbbafe2728eaa47d, type: 3}
-  - {fileID: 8339677282870024071, guid: e0a9312a7e3861c4187b7fa0a4c2c67a, type: 3}
-  poseParent: {fileID: 470862543}
-  goodFeedbackPanel: {fileID: 725932233}
-  poseFromBody: {fileID: 1348495765}
-  gameRepCountText: {fileID: 679026617}
-  currentPoseText: {fileID: 2004368542}
-  todayRepCountText: {fileID: 1226569705}
 --- !u!4 &2128024099
 Transform:
   m_ObjectHideFlags: 0
@@ -2483,10 +2461,22 @@ MonoBehaviour:
   poses:
   - {fileID: 6011914960668015994, guid: 89af39596dc6e774cbbafe2728eaa47d, type: 3}
   - {fileID: 1226399336200159406, guid: 86d2b58f3fdb66b428f76679bc97be46, type: 3}
+  - {fileID: 5367936649058406539, guid: 8923bfe137ce10b4caee7613039dff4f, type: 3}
+  - {fileID: 5802144005294417078, guid: cf65f9d5034b660459c4d9df5f34140d, type: 3}
   - {fileID: 8339677282870024071, guid: e0a9312a7e3861c4187b7fa0a4c2c67a, type: 3}
-  poseParent: {fileID: 0}
-  goodFeedbackPanel: {fileID: 0}
-  poseFromBody: {fileID: 0}
+  - {fileID: 8339677282870024071, guid: e0a9312a7e3861c4187b7fa0a4c2c67a, type: 3}
+  - {fileID: 8108288783829031203, guid: 80a38754404ea5145903cab8e271c1b9, type: 3}
+  - {fileID: 1927971639173087038, guid: ed3e967e517c3d8429ad5ca8f244d896, type: 3}
+  - {fileID: 482310183371342818, guid: 83d766a009b375046a7727d6080cba2b, type: 3}
+  - {fileID: 7691218672992230206, guid: ba717c47af915ef4286634e53aefba2b, type: 3}
+  - {fileID: 907001331291557434, guid: 8d67300fa41c90d4aa39b03bcd143638, type: 3}
+  - {fileID: 7151079687669873820, guid: 217b6e5502b131d44a7f3a81c016eabc, type: 3}
+  - {fileID: 3705193717855149293, guid: 1a846b04ed905da458a22379a08160b1, type: 3}
+  - {fileID: 5466261874791325075, guid: 57d6579264949b040b06b289db7675a0, type: 3}
+  - {fileID: 7218996488397937496, guid: fb61cffcce0ea6a4f8173ed8a61bafa2, type: 3}
+  poseParent: {fileID: 470862543}
+  goodFeedbackPanel: {fileID: 725932233}
+  poseFromBody: {fileID: 1348495765}
   gameRepCountText: {fileID: 0}
   currentPoseText: {fileID: 0}
   todayRepCountText: {fileID: 0}
