@@ -1999,7 +1999,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Current Pose: <b>T-Pose</b>'
+  m_text: 'Current Pose: <b></b>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2267,7 +2267,7 @@ MonoBehaviour:
   - {fileID: 8339677282870024071, guid: e0a9312a7e3861c4187b7fa0a4c2c67a, type: 3}
   poseParent: {fileID: 470862543}
   goodFeedbackPanel: {fileID: 725932233}
-  poseFromBody: {fileID: 0}
+  poseFromBody: {fileID: 1348495765}
   gameRepCountText: {fileID: 679026617}
   currentPoseText: {fileID: 2004368542}
   todayRepCountText: {fileID: 1226569705}
