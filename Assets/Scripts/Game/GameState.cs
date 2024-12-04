@@ -46,6 +46,11 @@ public class GameState : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ExitGame();
+        }
+
         if (pauseSimlarityUpdate || currentPose == null) return;
 
         // Get the BodyPoseComparerActiveState component from the current pose

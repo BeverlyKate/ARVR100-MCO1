@@ -2477,9 +2477,9 @@ MonoBehaviour:
   poseParent: {fileID: 470862543}
   goodFeedbackPanel: {fileID: 725932233}
   poseFromBody: {fileID: 1348495765}
-  gameRepCountText: {fileID: 0}
-  currentPoseText: {fileID: 0}
-  todayRepCountText: {fileID: 0}
+  gameRepCountText: {fileID: 679026617}
+  currentPoseText: {fileID: 2004368542}
+  todayRepCountText: {fileID: 1226569705}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
