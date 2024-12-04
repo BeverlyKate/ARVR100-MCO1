@@ -1,109 +1,66 @@
+using Oculus.Interaction.Body.PoseDetection;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
-    const float SIMILARITY_THRESHOLD = 0.8f;
-
-    readonly Queue<GameObject> pendingPoses = new();
-    readonly PoseSimilarityComputer poseSimilarityComputer = new(SIMILARITY_THRESHOLD);
-
     int repCount = 0;
     GameObject currentPose;
     bool pauseSimlarityUpdate = false;
 
-    [SerializeField, Header("Poses")] 
+    [SerializeField, Header("Poses")]
     List<GameObject> poses = new();
-    [SerializeField]
-    Pose testReferencePose;
 
     [SerializeField, Header("Game Elements")]
     GameObject poseParent;
     [SerializeField]
     GameObject goodFeedbackPanel;
+    [SerializeField]
+    PoseFromBody poseFromBody; // Reference to the real-time pose tracker
 
     [SerializeField, Header("Text Elements")]
     TextMeshProUGUI gameRepCountText;
-    [SerializeField] 
+    [SerializeField]
     TextMeshProUGUI currentPoseText, todayRepCountText;
+
+    readonly Queue<GameObject> pendingPoses = new();
 
     void Start()
     {
+        if (poseFromBody == null)
+        {
+            Debug.LogError("PoseFromBody component is not assigned in the inspector.");
+            return;
+        }
+
         ReplenishPoses();
         SetNextPose();
 
         UpdateRepsUI();
         UpdateRepsTodayUI();
-
-        if (testReferencePose != null)
-        {
-            Pose currPosePos = currentPose.GetComponent<Pose>();
-
-            Debug.Log(String.Format("{0}, {1}, {2}", currPosePos.HeadPosition, currPosePos.LeftHandPosition, currPosePos.RightHandPosition));
-            Debug.Log(String.Format("{0}, {1}, {2}", testReferencePose.HeadPosition, testReferencePose.LeftHandPosition, testReferencePose.RightHandPosition));
-        }
     }
 
     void Update()
     {
-        if (pauseSimlarityUpdate)
+        if (pauseSimlarityUpdate || currentPose == null) return;
+
+        // Get the BodyPoseComparerActiveState component from the current pose
+        var comparer = currentPose.GetComponent<BodyPoseComparerActiveState>();
+        if (comparer == null)
         {
+            Debug.LogError("BodyPoseComparerActiveState is missing on the current pose.");
             return;
         }
 
-        if (currentPose == null)
+        if (comparer.Active)
         {
-            Debug.LogError("currentPose is null.");
-            return;
+            Debug.Log("Pose matched successfully!");
+            StartCoroutine(MoveToNextPose());
         }
-
-        Pose currPosePos = currentPose.GetComponent<Pose>();
-
-
-        if (testReferencePose == null)
-        {
-            /*
-             poseSimilarityComputer.Update(
-                currPosePos.HeadPosition,
-                currPosePos.LeftHandPosition,
-                currPosePos.RightHandPosition,
-                Camera.main.transform.position,
-                OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch),
-                OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch)
-            );
-
-            if (poseSimilarityComputer.IsSimilar)
-            {
-                StartCoroutine(MoveToNextPose());
-            }
-            */
-
-
-            //when loading up a pose dont forget to set the Pose A as the player realtime info (Pose From Body obj)
-            //if activestate is yes hold for x seconds 
-            //
-
-        }
-        else
-        {
-            poseSimilarityComputer.Update(
-                currPosePos.HeadPosition,
-                currPosePos.LeftHandPosition,
-                currPosePos.RightHandPosition,
-                testReferencePose.HeadPosition,
-                testReferencePose.LeftHandPosition,
-                testReferencePose.RightHandPosition
-            );
-
-            Debug.Log(poseSimilarityComputer.Similarity);
-        }
-
-        UpdateModelSimilarityUI();
     }
 
     // Handlers
@@ -136,7 +93,7 @@ public class GameState : MonoBehaviour
         }
 
         SetNextPose();
-        
+
         pauseSimlarityUpdate = false;
     }
 
@@ -169,22 +126,22 @@ public class GameState : MonoBehaviour
 
         GameObject nextPosePrefab = pendingPoses.Dequeue();
         currentPose = Instantiate(nextPosePrefab, poseParent.transform);
-        currentPose.AddComponent<Pose>();
-        currentPose.AddComponent<PoseSimilarityVisualizer>();
+
+        // Set "Pose A" for BodyPoseComparerActiveState
+        var comparer = currentPose.GetComponent<BodyPoseComparerActiveState>();
+        if (comparer != null)
+        {
+            comparer.SetPoseA(poseFromBody);
+        }
+        else
+        {
+            Debug.LogError("BodyPoseComparerActiveState is missing on the instantiated pose prefab.");
+        }
 
         currentPoseText.text = "Current Pose: <b>" + nextPosePrefab.name + "</b>";
     }
 
     // UI
-
-    void UpdateModelSimilarityUI()
-    { 
-        PoseSimilarityVisualizer simVis = currentPose.GetComponent<PoseSimilarityVisualizer>();
-
-        simVis.UpdateHeadSimilarity(poseSimilarityComputer.HeadSimilarity);
-        simVis.UpdateLeftHandSimilarity(poseSimilarityComputer.LeftHandSimilarity);
-        simVis.UpdateRightHandSimilarity(poseSimilarityComputer.RightHandSimilarity);
-    }
 
     void UpdateRepsUI()
     {
@@ -194,6 +151,6 @@ public class GameState : MonoBehaviour
     void UpdateRepsTodayUI()
     {
         // TODO: Fetch the current player's daily streak and set
-        //todayRepCountText.text = ;
+        // todayRepCountText.text = ;
     }
 }
