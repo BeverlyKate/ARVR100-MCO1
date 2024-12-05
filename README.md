@@ -113,14 +113,9 @@ If you encounter unusually long loading times:
 
 If you encounter any issues or have any suggestions or feedback, feel free to contact the contributors:
 
-## Contributors
-
-<div align="center">
-    <img src="Images/contributors-table-small.png" alt="All Contributors Table Screenshot" width="800px" />
-</div>
-
-> You can use [the @all-contributors bot 🤖](https://allcontributors.org/docs/en/bot/overview) to automate acknowledging contributors to your open source projects
-
-
+- **[Maxine Beatriz Badiola](mailto:maxine_badiola@dlsu.edu.ph)**  
+- **[Clyde Julian Marindo](mailto:clyde_marindo@dlsu.edu.ph)**  
+- **[Lenz Gio Rivera](mailto:lenz_gio_rivera@dlsu.edu.ph)**  
+- **[Beverly Kate Yu](mailto:beverly_kate_yu@dlsu.edu.ph)**  
 ---
 Have fun and XR-CiSE!
