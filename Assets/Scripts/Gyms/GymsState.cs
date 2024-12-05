@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Firebase.Database;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -18,8 +17,9 @@ public class GymsState : MonoBehaviour
     [SerializeField] GameObject selectButton;
     [SerializeField] GameObject deleteButton;
 
-    TMP_InputField gymInputField { 
-        get => inputPanel.transform.Find("InputField (TMP)").GetComponent<TMP_InputField>(); 
+    TMP_InputField gymInputField
+    {
+        get => inputPanel.transform.Find("InputField (TMP)").GetComponent<TMP_InputField>();
     }
 
     public List<Gym> Gyms { get; private set; }
@@ -40,7 +40,7 @@ public class GymsState : MonoBehaviour
             return;
         }
 
-        DataSnapshot gymSS= await _reference.Child("Gyms").Child(CurrentAccount.Account.gymId).GetValueAsync();
+        DataSnapshot gymSS = await _reference.Child("Gyms").Child(CurrentAccount.Account.gymId).GetValueAsync();
         Gym gym = JsonUtility.FromJson<Gym>(gymSS.GetRawJsonValue());
 
         userCurrentGym = gym;
@@ -71,7 +71,7 @@ public class GymsState : MonoBehaviour
         GymDB gdb = new();
         await gdb.AddGym(gymInputField.text);
 
-        UpdateGyms();
+        await UpdateGyms(); // Await this to ensure the update completes before closing the input screen.
         CloseGymInputScreen();
     }
 
@@ -96,7 +96,9 @@ public class GymsState : MonoBehaviour
     public async void DeleteGym()
     {
         GymDB gdb = new();
-        gdb.DeleteGym(SelectedGym);
+
+        // Wrap in Task.Run if DeleteGym is synchronous
+        await Task.Run(() => gdb.DeleteGym(SelectedGym));
 
         PlayerDB pdb = new();
         var accounts = await pdb.FetchAccounts();
@@ -110,7 +112,8 @@ public class GymsState : MonoBehaviour
             }
         }
 
-        UpdateGyms();
+        await UpdateGyms();
         PreSelectGym(null);
     }
+
 }
