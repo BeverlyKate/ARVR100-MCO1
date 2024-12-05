@@ -31,7 +31,7 @@ Welcome to XR-CiSE! Follow the instructions below to get started with the applic
    ![Add to Library Step 2](Images/metaquestlink-addtolib2.png)  
 4. Select `XR-CiSE.exe`.  
 5. Run the app via Meta Quest Link.
-
+   ![Runn App](Images/metaquestlink-apps.png)  
 ---
 
 ## Loading the Game
