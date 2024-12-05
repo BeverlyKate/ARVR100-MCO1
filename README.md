@@ -2,11 +2,10 @@
 
 **XR-CiSE** is a proof-of-concept VR exercise game specifically built for the Meta Quest 2. It can immersively guide you through several exercise poses through a 3D instructor, as well as track your exercise progress over time. Also, unlike other exercise games, XR-CiSE lets you form gyms with your peers so that you not only build muscles but also bonds! Race against other gyms by the number of reps you do per daily, with your daily streak multiplying your advantage against other gyms. XR-CiSE ultimately has the goal of making exercise not a chore - but a fun activity to look forward to for yourself and those around you. 
 
-- **Track your daily workouts and connect with friends to monitor progress.  
+- **Track** your daily workouts and connect with friends to monitor progress.  
 - Join **gym groups** with your friends and collaborate to accumulate scores based on the reps completed by each member.  
 - Stay motivated by competing and collaborating via gym leaderboards and tracking your weekly progress together!  
 - Enhance your fitness routine and contribute to your gyms ranking!
-
 
 # XR-CiSE Setup Guide
 
@@ -102,12 +101,10 @@ After loading the game, use the either **Meta Quest controller** to interact wit
 If your **tracked pose model** collapses or behaves unexpectedly:  
 - Recalibrate your **Meta Quest boundary** to ensure proper tracking.
 - Reboot the application
-- 
+  
 ### 2. Long Loading Times  
 If you encounter unusually long loading times:  
-- Reset your **Meta Quest headset** and reload the application
-- Verify your installation to ensure all files are correctly set up.  
-
+- **Reset** your Meta Quest headset and reload the application
 ---
 ## Contact Information
 
